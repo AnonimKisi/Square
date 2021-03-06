@@ -1,4 +1,5 @@
-﻿using Snake;
+//Made by AnonimKisi
+using Snake;
 using System;
 using System.Collections.Generic;
 using System.Linq;
