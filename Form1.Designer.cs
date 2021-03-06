@@ -1,4 +1,5 @@
-﻿namespace Snake
+//Made by AnonimKisi
+namespace Snake
 {
     partial class Form1
     {
