@@ -1,4 +1,4 @@
-﻿//Made by AnonimKisi
+//Made by AnonimKisi
 
 //Add the necessary libraries
 using System;
@@ -23,20 +23,27 @@ namespace Snake
         int i = -5;
         int j = 5;
         int k = 10;
+
         //Make a restart function
-         void Restart()
+        void GameOver()
         {
-              var applicationPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
-              Process.Start(applicationPath);
-              Environment.Exit(1);      
+            void Restart()
+            {
+                var applicationPath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+                Process.Start(applicationPath);
+                Environment.Exit(1);
+            }
+            timer1.Stop();
+            MessageBox.Show("GAME OVER\nYour final score: " + points);
+            Restart();
         }
 
         //Make a function to spawn an 'apple'
         void GenerateApple()
         {
             Random random = new Random();
-            int random_x = random.Next(10,380);
-            int random_y = random.Next(10,380);
+            int random_x = random.Next(10, 380);
+            int random_y = random.Next(10, 380);
             apple.Location = new Point(random_x, random_y);
             apple.Show();
         }
@@ -58,7 +65,7 @@ namespace Snake
         {
             e.IsInputKey = true;
 
-            if(e.KeyCode == Keys.Up)
+            if (e.KeyCode == Keys.Up)
             {
                 up_ispressed = true;
                 down_ispressed = false;
@@ -103,9 +110,7 @@ namespace Snake
             {
                 if (snake.Bounds.IntersectsWith(lbl.Bounds))
                 {
-                    timer1.Stop();
-                    MessageBox.Show("GAME OVER\nYour final score: " + points);
-                    Restart();
+                    GameOver();
                 }
             }
 
@@ -122,25 +127,26 @@ namespace Snake
             }
 
         }
+
         //Use timer to constantly move the 'snake' in the direction of the last arrow button that is pressed
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(up_ispressed == true)
+            if (up_ispressed == true)
             {
                 snake.Top = snake.Top + i;
             }
 
-            if(down_ispressed == true)
+            if (down_ispressed == true)
             {
                 snake.Top = snake.Top + j;
             }
 
-            if(left_ispressed == true)
+            if (left_ispressed == true)
             {
                 snake.Left = snake.Left + i;
             }
 
-            if(right_ispressed == true)
+            if (right_ispressed == true)
             {
                 snake.Left = snake.Left + j;
             }
@@ -162,9 +168,7 @@ namespace Snake
             {
                 if (snake.Bounds.IntersectsWith(lbl.Bounds))
                 {
-                    timer1.Stop();
-                    MessageBox.Show("GAME OVER\nYour final score: " + points);
-                    Restart();
+                    GameOver();
                 }
             }
 
