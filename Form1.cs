@@ -56,8 +56,6 @@ namespace Snake
         private void Form1_Load(object sender, EventArgs e)
         {
             GenerateApple();
-            snake.Size = new Size(k, k);
-            this.Text = "Score: 0";
             timer1.Start();
         }
         //detect arrow keys and move the 'snake'
