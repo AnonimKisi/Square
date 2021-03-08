@@ -40,12 +40,26 @@ namespace Snake
 
         //Make a function to spawn an 'apple'
         void GenerateApple()
-        {
+        {           
+            top:
             Random random = new Random();
-            int random_x = random.Next(10, 380);
-            int random_y = random.Next(10, 380);
-            apple.Location = new Point(random_x, random_y);
-            apple.Show();
+            int random_x = random.Next(20, 370);
+            int random_y = random.Next(20, 370);
+            if(random_x >= snake.Left && random_x <= snake.Right)
+            {
+                Thread.Sleep(20);
+                goto top;
+            }else
+            {
+                if(random_y >= snake.Top && random_y <= snake.Bottom)
+                {
+                    Thread.Sleep(20);
+                    goto top;
+                }else
+                {
+                    apple.Location = new Point(random_x, random_y);
+                }
+            }          
         }
         //Start the program
         public Form1()
@@ -119,7 +133,7 @@ namespace Snake
                 points = points + 100;
                 i = i + -1;
                 j = j + 1;
-                k = k + 10;
+                k = k + 5;
                 snake.Size = new Size(k, k);
                 this.Text = "Score: " + points;
             }
