@@ -673,7 +673,7 @@ namespace Snake
             this.apple.FlatAppearance.BorderSize = 0;
             this.apple.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.apple.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.apple.Location = new System.Drawing.Point(28, 7);
+            this.apple.Location = new System.Drawing.Point(28, 6);
             this.apple.Name = "apple";
             this.apple.Size = new System.Drawing.Size(13, 20);
             this.apple.TabIndex = 69;
@@ -683,7 +683,9 @@ namespace Snake
             // timer1
             // 
             this.timer1.Interval = 500;
+
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+
             // 
             // Form1
             // 
