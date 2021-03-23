@@ -66,7 +66,7 @@ namespace Snake
         {
             InitializeComponent();
         }
-        //Generate an 'apple', give 'snake' a size and change title to "Score: 0"
+        //Generate an 'apple' and start the timer.
         private void Form1_Load(object sender, EventArgs e)
         {
             GenerateApple();
@@ -117,7 +117,7 @@ namespace Snake
                 snake.Left = snake.Left + j;
             }
 
-            //if 'snake' touches any label, trigger the Restart() function
+            //if 'snake' touches any label, trigger the GameOver() function
             foreach (Label lbl in this.Controls.OfType<Label>())
             {
                 if (snake.Bounds.IntersectsWith(lbl.Bounds))
@@ -175,7 +175,7 @@ namespace Snake
                 this.Text = "Score: " + points;
             }
 
-            //if 'snake' touches any label, trigger the Restart() function
+            //if 'snake' touches any label, trigger the GameOver() function
             foreach (Label lbl in this.Controls.OfType<Label>())
             {
                 if (snake.Bounds.IntersectsWith(lbl.Bounds))
