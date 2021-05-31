@@ -1,5 +1,5 @@
 //Made by AnonimKisi
-using Snake;
+using Snake; //important line!
 using System;
 using System.Collections.Generic;
 using System.Linq;
