@@ -19,10 +19,10 @@ namespace Snake
         bool right_ispressed = false;
 
         //Declare variables for score, size and speed
-        int points = 0;
-        int i = -5;
-        int j = 5;
-        int k = 10;
+        int points = 0; //score
+        int i = -10; //up-left speed
+        int j = 10; //down-right speed
+        int k = 10; //size
 
         //Make a restart function
         void GameOver()
@@ -40,26 +40,28 @@ namespace Snake
 
         //Make a function to spawn an 'apple'
         void GenerateApple()
-        {           
+        {
             top:
             Random random = new Random();
             int random_x = random.Next(20, 370);
             int random_y = random.Next(20, 370);
-            if(random_x >= snake.Left && random_x <= snake.Right)
+            if (random_x >= snake.Left && random_x <= snake.Right)
             {
                 Thread.Sleep(20);
                 goto top;
-            }else
+            }
+            else
             {
-                if(random_y >= snake.Top && random_y <= snake.Bottom)
+                if (random_y >= snake.Top && random_y <= snake.Bottom)
                 {
                     Thread.Sleep(20);
                     goto top;
-                }else
+                }
+                else
                 {
                     apple.Location = new Point(random_x, random_y);
                 }
-            }          
+            }
         }
         //Start the program
         public Form1()
@@ -145,22 +147,22 @@ namespace Snake
         {
             if (up_ispressed == true)
             {
-                snake.Top = snake.Top + i;
+                snake.Top = snake.Top + i/2;
             }
 
             if (down_ispressed == true)
             {
-                snake.Top = snake.Top + j;
+                snake.Top = snake.Top + j/2;
             }
 
             if (left_ispressed == true)
             {
-                snake.Left = snake.Left + i;
+                snake.Left = snake.Left + i/2;
             }
 
             if (right_ispressed == true)
             {
-                snake.Left = snake.Left + j;
+                snake.Left = snake.Left + j/2;
             }
 
             //if 'snake' touches the 'apple', change its size, speed and give the player 100 points
